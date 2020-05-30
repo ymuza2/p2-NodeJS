@@ -33,10 +33,9 @@ router.put('/books/:isbn', (req, res) => {
             book.author = author ? author : book.author;
             res.json({'modified': 'ok'});
         }
-        else{
-            res.status(400).json({'statusCode':'Bad Request, book data could not be modified.'});
-        }
+         
     });
+    res.status(400).json({'statusCode':'Bad Request, book data could not be modified.'});
 });
 
 

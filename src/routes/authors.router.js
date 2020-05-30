@@ -28,12 +28,13 @@ router.put("/authors/:id", (req, res) => {
       author.lastname = lastname ? lastname : author.lastname;
 
       res.json({ modified: "ok" });
-    } else {
-      res.status(400).json({
-        statusCode: "Bad Request, author data could not be modified.",
-      });
-    }
+    } 
   });
+  
+    res.status(400).json({
+      statusCode: "Bad Request, author data could not be modified.",
+    });
+  
 });
 
 router.delete("/authors/:id", (req, res) => {
@@ -44,12 +45,6 @@ router.delete("/authors/:id", (req, res) => {
     res.json(authors);
 });
 
-/*router.delete("/authors/:id", (req, res) => {
-  const id = req.params.id;
-  _.remove(authors, (author) => {
-    return author.id == id;
-  });
-  res.json(authors);
-});*/
+
 
 module.exports = router;
